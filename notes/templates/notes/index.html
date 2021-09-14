@@ -2,19 +2,54 @@
 {% load static %}
 
 {% block content %}
-<img src="{% static 'notes/img/logo-getit.png' %}" />
-<p>Como o Post-it, mas com outro verbo</p>
+<div class="appbar">
+    <img src="{% static 'notes/img/logo-getit.png' %}" class="logo" />
+    <span class="subtitle">Como o Post-it, mas com outro verbo</span>
+  </div>
 
-<form method="post">
-    {% csrf_token %}
-  <label for="titulo">Título</label>
-  <input id="titulo" type="text" name="titulo" />
-  <label for="detalhes">Detalhes</label>
-  <textarea id="detalhes" name="detalhes"></textarea>
-  <input type="submit" />
-</form>
+  <div class="add-note-container">
+    <button type="button" class="add-note-button" onclick="openAddNoteForm()">
+      <img src="{% static 'notes/img/add-note.png' %}" class="add-note-img" />
+    </button>
+  </div>
+  <script type="text/javascript" src="{% static 'script/getit.js' %}"></script>
+  <main>
+    <!-- Form de POST para add uma nota na DB -->
+    <div class="addNoteForm" id="addNoteFormID">
+      <form class="form-card" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="method" value="POST" />
+        <input
+          class="form-card-title"
+          type="text"
+          name="title"
+          placeholder="Título"
+          required
+        />
+        <textarea
+          class="form-card-content"
+          name="content"
+          placeholder="Digite o conteúdo..."
+          required
+        ></textarea>
+        <div class="form-card-buttons">
+          <button class="btn" id="addNote-button-create" type="submit">
+            Criar
+          </button>
+          <button
+            class="btn"
+            id="addNote-button-close"
+            type="button"
+            onclick="closeAddNoteForm()"
+          >
+            Fechar
+          </button>
+        </div>
+      </form>
+    </div>
+    <!-- notas  -->
+    <div class="card-container">{% block notes %} {% endblock %}</div>
+    <!-- Post PopUp -->
+  </main>
 
-<ul>
-    {% block notes %} {% endblock %}
-</ul>
-{% endblock %}
+  {% endblock %}
