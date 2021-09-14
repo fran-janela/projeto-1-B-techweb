@@ -9,7 +9,7 @@
         <form class="button-delete-form" method="post">
             {% csrf_token %}
           <input type="hidden" name="method" value="DELETE" />
-          <input type="hidden" name="id" value="{id}" />
+          <input type="hidden" name="id" value="{{ note.id }}" />
           <button class="button-delete" type="submit">
             <img src="{% static 'notes/img/caixote-de-lixo.png' %}" class="card-image" />
           </button>
