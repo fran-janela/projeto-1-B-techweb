@@ -1,27 +1,35 @@
 from django.shortcuts import render, redirect
-from .models import Note
+from .models import Note, Tag
 
 
-def index(request):
+def indexNote(request):
     if request.method == 'POST':
-        # if request.POST.get('method') == 'DELETE':
-        # if request.POST.get('method') == 'UPDATE':
-        # if request.POST.get('method') == 'POST':
         note = Note()
-        note.title = request.POST.get('titulo')
-        note.content = request.POST.get('detalhes')
+        note.title = request.POST.get('title')
+        note.content = request.POST.get('content')
+        
+        tag_name = request.POST.get('tag')
+        tag, create = Tag.objects.get_or_create(name=tag_name)
+        if create:
+            tag.save()
+        
+        note.tag = tag
         note.save()
-        return redirect('index')
+        return redirect('indexNote')
     else:
         all_notes = Note.objects.all()
         return render(request, 'notes/notes.html', {'notes': all_notes})
 
-def updateViews(request, pk):
-    Note.objects.filter(pk=pk).update(title=request.POST.get('title'), content=request.POST.get('content'))
-    return redirect('index')
+def updateNoteViews(request, pk):
+    tag_name = request.POST.get('tag')
+    tag, create = Tag.objects.get_or_create(name=tag_name)
+    if create:
+        tag.save()
+    Note.objects.filter(pk=pk).update(title=request.POST.get('title'), content=request.POST.get('content'), tag=tag)
+    return redirect('indexNote')
 
 
-def deleteView(request, pk):
+def deleteNoteView(request, pk):
     note_delete = Note.objects.get(pk=pk)
     note_delete.delete()
-    return redirect('index')
+    return redirect('indexNote')
