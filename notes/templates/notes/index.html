@@ -18,7 +18,6 @@
     <div class="addNoteForm" id="addNoteFormID">
       <form class="form-card" method="post">
         {% csrf_token %}
-        <input type="hidden" name="method" value="POST" />
         <input
           class="form-card-title"
           type="text"
@@ -32,6 +31,12 @@
           placeholder="Digite o conteúdo..."
           required
         ></textarea>
+        <input
+          class="form-card-tag"
+          type="text"
+          name="tag"
+          placeholder="Tag (opcional)"
+        />
         <div class="form-card-buttons">
           <button class="btn" id="addNote-button-create" type="submit">
             Criar
