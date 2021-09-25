@@ -6,4 +6,5 @@ urlpatterns = [
     path('', views.indexNote, name='indexNote'),
     path('delete/<int:pk>', views.deleteNoteView, name='delete'),
     path('update/<int:pk>', views.updateNoteViews, name='update'),
+    path('tags/', views.indexTag, name='tags')
 ]

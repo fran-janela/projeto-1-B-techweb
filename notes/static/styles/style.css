@@ -48,6 +48,10 @@ main {
   grid-template-rows: auto;
   overflow: auto;
 }
+
+a {
+  text-decoration: none;
+}
 /* Você pode usar o CSS comentado abaixo, se ajudar */
 
 /* Fonte: https://codepen.io/CrisWoler/pen/ogXBLj */
@@ -101,9 +105,16 @@ main {
   background-color: #f7d736;
   box-shadow: 0 7px 20px rgb(0 0 0 / 15%), 0 2px 3px rgb(0 0 0 / 22%);
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   z-index: 100;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50vw;
 }
 
 .subtitle {
@@ -113,6 +124,13 @@ main {
 .logo {
   height: 3vw;
   margin: 1% 1%;
+}
+
+.appbar-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
 }
 
 /* ==== Botão para form de add nota ====== */

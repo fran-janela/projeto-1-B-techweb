@@ -33,3 +33,8 @@ def deleteNoteView(request, pk):
     note_delete = Note.objects.get(pk=pk)
     note_delete.delete()
     return redirect('indexNote')
+
+def indexTag(request):
+    all_tags = Tag.objects.all()
+    print('oie')
+    return render(request, 'tags/tags.html', {'tags': all_tags})
