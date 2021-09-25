@@ -1,14 +1,14 @@
-{% extends "base.html" %}
+{% extends "tags/index.html" %}
 {% load static %}
-
-{% block content %}
-<div class="appbar">
-	<div class="logo-container">
-		<img src="{% static 'notes/img/logo-getit.png' %}" class="logo" />
-		<span class="subtitle">Como o Post-it, mas com outro verbo</span>
-	</div>
-	<div class="appbar-button-container">
-		<a href="{% url 'indexNote' %}"><button class='btn'>Notes</button></a>
-	</div>
-</div>
+{% block tags %}
+{% for tag in tags %}
+<form action="{% url 'detailTag' tag.id %}">
+    <button type="submit" class="tag-select">
+        <div class="tag">
+            <div class="tag-color"><div class="color"></div></div>
+            <div class="tag-title">{{ tag.name }}</div>
+        </div>
+    </button>
+</form>
+{% endfor %}
 {% endblock %}

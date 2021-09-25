@@ -45,7 +45,13 @@
         placeholder="{{ note.title }}"
         value="{{ note.title }}"
       />
-      <textarea class="update-card-content" name="content">{{note.content}}</textarea>
+      <textarea
+        class="update-card-content"
+        name="content"
+        placeholder="{{ note.content }}"
+      >
+        {{ note.content }} </textarea
+      >
       <input
           class="update-card-tag"
           type="text"

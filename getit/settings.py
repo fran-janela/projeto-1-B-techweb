@@ -22,6 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-8sazud#scv2b7&oo+umj5(i_*!m75i!bkr3+!=w*3_u)2z6_^3'
 
+# HEROKU APP: morning-wave-79409
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
