@@ -1,60 +1,65 @@
-{% extends "notes/base.html" %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block content %}
 <div class="appbar">
+  <div class="logo-container">
     <img src="{% static 'notes/img/logo-getit.png' %}" class="logo" />
     <span class="subtitle">Como o Post-it, mas com outro verbo</span>
   </div>
-
-  <div class="add-note-container">
-    <button type="button" class="add-note-button" onclick="openAddNoteForm()">
-      <img src="{% static 'notes/img/add-note.png' %}" class="add-note-img" />
-    </button>
+  <div class="appbar-button-container">
+    <a href="{% url 'tags' %}"><button class='btn'>Tags</button></a>
   </div>
-  <script type="text/javascript" src="{% static 'script/getit.js' %}"></script>
-  <main>
-    <!-- Form de POST para add uma nota na DB -->
-    <div class="addNoteForm" id="addNoteFormID">
-      <form class="form-card" method="post">
-        {% csrf_token %}
-        <input
-          class="form-card-title"
-          type="text"
-          name="title"
-          placeholder="Título"
-          required
-        />
-        <textarea
-          class="form-card-content"
-          name="content"
-          placeholder="Digite o conteúdo..."
-          required
-        ></textarea>
-        <input
-          class="form-card-tag"
-          type="text"
-          name="tag"
-          placeholder="Tag (opcional)"
-        />
-        <div class="form-card-buttons">
-          <button class="btn" id="addNote-button-create" type="submit">
-            Criar
-          </button>
-          <button
-            class="btn"
-            id="addNote-button-close"
-            type="button"
-            onclick="closeAddNoteForm()"
-          >
-            Fechar
-          </button>
-        </div>
-      </form>
-    </div>
-    <!-- notas  -->
-    <div class="card-container">{% block notes %} {% endblock %}</div>
-    <!-- Post PopUp -->
-  </main>
+</div>
 
-  {% endblock %}
+<div class="add-note-container">
+  <button type="button" class="add-note-button" onclick="openAddNoteForm()">
+    <img src="{% static 'notes/img/add-note.png' %}" class="add-note-img" />
+  </button>
+</div>
+<script type="text/javascript" src="{% static 'script/getit.js' %}"></script>
+<main>
+  <!-- Form de POST para add uma nota na DB -->
+  <div class="addNoteForm" id="addNoteFormID">
+    <form class="form-card" method="post">
+      {% csrf_token %}
+      <input
+        class="form-card-title"
+        type="text"
+        name="title"
+        placeholder="Título"
+        required
+      />
+      <textarea
+        class="form-card-content"
+        name="content"
+        placeholder="Digite o conteúdo..."
+        required
+      ></textarea>
+      <input
+        class="form-card-tag"
+        type="text"
+        name="tag"
+        placeholder="Tag (opcional)"
+      />
+      <div class="form-card-buttons">
+        <button class="btn" id="addNote-button-create" type="submit">
+          Criar
+        </button>
+        <button
+          class="btn"
+          id="addNote-button-close"
+          type="button"
+          onclick="closeAddNoteForm()"
+        >
+          Fechar
+        </button>
+      </div>
+    </form>
+  </div>
+  <!-- notas  -->
+  <div class="card-container">{% block notes %} {% endblock %}</div>
+  <!-- Post PopUp -->
+</main>
+
+{% endblock %}

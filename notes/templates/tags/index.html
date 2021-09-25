@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="appbar">
+	<div class="logo-container">
+		<img src="{% static 'notes/img/logo-getit.png' %}" class="logo" />
+		<span class="subtitle">Como o Post-it, mas com outro verbo</span>
+	</div>
+	<div class="appbar-button-container">
+		<a href="{% url 'indexNote' %}"><button class='btn'>Notes</button></a>
+	</div>
+</div>
+<main>
+	<div class="tag-container">{% block tags %} {% endblock %}</div>
+</main>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "tags/index.html" %}
+{% load static %}
+{% block tags %}
+{% for tag in tags %}
+<form action="{% url 'detailTag' tag.id %}">
+    <button type="submit" class="tag-select">
+        <div class="tag">
+            <div class="tag-color"><div class="color"></div></div>
+            <div class="tag-title">{{ tag.name }}</div>
+        </div>
+    </button>
+</form>
+{% endfor %}
+{% endblock %}
