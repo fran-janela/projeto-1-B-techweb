@@ -1,6 +1,6 @@
-{% extends "notes/index.html" %}
+{% extends "tags/index.html" %}
 {% load static %}
-{% block notes %}
+{% block tags %}
 <div class="card-container">
   {% for note in notes %}
   <div class="card" id="{{ note.tag.color }}">

@@ -49,6 +49,11 @@ document.addEventListener("DOMContentLoaded", function () {
   let cards = document.getElementsByClassName("card");
   for (let i = 0; i < cards.length; i++) {
     let card = cards[i];
-    card.className += ` card-color-${getRandomInt(1, 5)}`;
+    card.style.background = String(card.id);
+  }
+  let tags = document.getElementsByClassName("color");
+  for (let i = 0; i < tags.length; i++) {
+    let tag = tags[i];
+    tag.style.background = String(tag.id);
   }
 });

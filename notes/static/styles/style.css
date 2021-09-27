@@ -60,7 +60,7 @@ a {
 .btn {
   position: relative;
   display: block;
-  padding: 10px 15px;
+  padding: 0.5vw 0.9vw;
   overflow: hidden;
   border-width: 0;
   outline: none;
@@ -126,11 +126,19 @@ a {
   margin: 1% 1%;
 }
 
-.appbar-button-container {
+.appbar-button-containers {
+  margin-right: 2vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  width: 10%;
+  width: 17%;
+}
+
+#appbar-buttons {
+  width: 5vw;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1vw;
 }
 
 /* ==== Botão para form de add nota ====== */

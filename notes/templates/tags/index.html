@@ -7,11 +7,14 @@
 		<img src="{% static 'notes/img/logo-getit.png' %}" class="logo" />
 		<span class="subtitle">Como o Post-it, mas com outro verbo</span>
 	</div>
-	<div class="appbar-button-container">
-		<a href="{% url 'indexNote' %}"><button class='btn'>Notes</button></a>
+	<div class="appbar-button-containers">
+		<a href="{% url 'indexNote' %}"><button class='btn' id="appbar-buttons">Notas</button></a>
+		<a href="{% url 'tags' %}"><button class='btn' id="appbar-buttons">Tags</button></a>
+		<a href="https://github.com/fran-janela/projeto-1-B-techweb"><button class='btn' id="appbar-buttons">GitHub</button></a>
 	</div>
-</div>
+	</div>
+<script type="text/javascript" src="{% static 'script/getit.js' %}"></script>
 <main>
-	<div class="tag-container">{% block tags %} {% endblock %}</div>
+	{% block tags %} {% endblock %}
 </main>
 {% endblock %}

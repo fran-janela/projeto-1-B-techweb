@@ -7,8 +7,10 @@
     <img src="{% static 'notes/img/logo-getit.png' %}" class="logo" />
     <span class="subtitle">Como o Post-it, mas com outro verbo</span>
   </div>
-  <div class="appbar-button-container">
-    <a href="{% url 'tags' %}"><button class='btn'>Tags</button></a>
+  <div class="appbar-button-containers">
+    <a href="{% url 'indexNote' %}"><button class='btn' id="appbar-buttons">Notas</button></a>
+    <a href="{% url 'tags' %}"><button class='btn' id="appbar-buttons">Tags</button></a>
+    <a href="https://github.com/fran-janela/projeto-1-B-techweb"><button class='btn' id="appbar-buttons">GitHub</button></a>
   </div>
 </div>
 
@@ -36,12 +38,25 @@
         placeholder="Digite o conteúdo..."
         required
       ></textarea>
-      <input
-        class="form-card-tag"
+      <div class="form-card-tag">
+        <input
+        class="form-card-tag-name"
         type="text"
         name="tag"
         placeholder="Tag (opcional)"
-      />
+        />
+        <select onchange="this.className=this.options[this.selectedIndex].className" class="form-card-tag-select-color color-option-default" name="color">
+          <option class="color-option-default form-card-option-size" value="#FFF2A7"></option>
+          <option class="color-option-3 form-card-option-size" value="#FFB394"></option>
+          <option class="color-option-5 form-card-option-size" value="#FF9999"></option>
+          <option class="color-option-7 form-card-option-size" value="#FF8AD2"></option>
+          <option class="color-option-6 form-card-option-size" value="#D8BFD8"></option>
+          <option class="color-option-4 form-card-option-size" value="#C6D8F0"></option>
+          <option class="color-option-1 form-card-option-size" value="#C4F9FF"></option>
+          <option class="color-option-2 form-card-option-size" value="#CCFF99"></option>
+          <option class="color-option-8 form-card-option-size" value="#C6E5B1"></option>
+        </select>
+      </div>
       <div class="form-card-buttons">
         <button class="btn" id="addNote-button-create" type="submit">
           Criar
@@ -58,7 +73,7 @@
     </form>
   </div>
   <!-- notas  -->
-  <div class="card-container">{% block notes %} {% endblock %}</div>
+  {% block notes %} {% endblock %}
   <!-- Post PopUp -->
 </main>
 
