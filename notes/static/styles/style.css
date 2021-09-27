@@ -82,8 +82,7 @@ a {
   display: grid;
   height: 100%;
   grid-template-columns: auto;
-  grid-template-rows: 10% auto;
-  overflow: hidden;
+  grid-template-rows: 7vw auto;
 }
 
 /* ============ Appbar e logo ============ */
