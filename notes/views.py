@@ -66,4 +66,4 @@ def indexTag(request):
 def detailTag(request, pk):
     tag = Tag.objects.get(pk=pk)
     selected_notes = Note.objects.filter(tag=tag)
-    return render(request, 'tags/selected.html', {'notes': selected_notes})
+    return render(request, 'selected/selected.html', {'notes': selected_notes})

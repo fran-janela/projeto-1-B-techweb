@@ -1,9 +1,21 @@
 {% extends "tags/index.html" %}
 {% load static %}
 {% block tags %}
+<div class="filter-tag-container">
+    <button class="btn" id="filter-button" onclick="filterTags('Todas')">Todas</button>
+    <button class="btn color-option-default" id="filter-button" onclick="filterTags('#FFF2A7')"></button>
+    <button class="btn color-option-3" id="filter-button" onclick="filterTags('#FFB394')"></button>
+    <button class="btn color-option-5" id="filter-button" onclick="filterTags('#FF9999')"></button>
+    <button class="btn color-option-7" id="filter-button" onclick="filterTags('#FF8AD2')"></button>
+    <button class="btn color-option-6" id="filter-button" onclick="filterTags('#D8BFD8')"></button>
+    <button class="btn color-option-4" id="filter-button" onclick="filterTags('#C6D8F0')"></button>
+    <button class="btn color-option-1" id="filter-button" onclick="filterTags('#C4F9FF')"></button>
+    <button class="btn color-option-2" id="filter-button" onclick="filterTags('#CCFF99')"></button>
+    <button class="btn color-option-8" id="filter-button" onclick="filterTags('#C6E5B1')"></button>
+</div>
 <div class="tag-container">
     {% for tag in tags %}
-    <form action="{% url 'detailTag' tag.id %}">
+    <form action="{% url 'detailTag' tag.id %}" class="tag-form" id="{{ tag.color }}">
         <button type="submit" class="tag-select">
             <div class="tag">
                 <div class="tag-color"><div class="color" id="{{ tag.color }}"></div></div>

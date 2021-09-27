@@ -1,5 +1,24 @@
-.tag-container {
+.filter-tag-container {
   grid-area: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: auto;
+  height: 100%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+#filter-button {
+  width: 7vw;
+  height: 2.5vw;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1vw;
+}
+
+.tag-container {
+  grid-area: 2/1;
   overflow: auto;
   text-align: center;
   height: 60vw;
