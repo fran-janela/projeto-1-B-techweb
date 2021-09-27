@@ -1,0 +1,53 @@
+.tag-container {
+  grid-area: 1/1;
+  overflow: auto;
+  text-align: center;
+  height: 60vw;
+  display: grid;
+  grid-gap: 2%;
+  grid-template: repeat(7, 1fr) / repeat(3, 1fr);
+  grid-auto-flow: row;
+  z-index: 1;
+  padding: 1%;
+}
+
+.tag {
+  display: grid;
+  box-shadow: 0 7px 20px rgb(0 0 0 / 15%), 0 2px 3px rgb(0 0 0 / 22%);
+  width: 100%;
+  height: 7vw;
+  grid-template-rows: 40% auto 20%;
+}
+
+.tag-color {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.color {
+  width: 90%;
+  height: 50%;
+  background-color: red;
+}
+
+.tag-title {
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  height: 100%;
+  grid-area: 2/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.4vw;
+}
+
+.tag-select {
+  height: 100%;
+  width: 100%;
+  background: none;
+  border: none;
+  border-style: none;
+}
