@@ -96,6 +96,21 @@ Inicie a aplicação:
 ```cmd
 python manage.py runserver
 ```
+</br></br>
+
+# Imagens de Exemplo
+
+Tela principal com as Notas:
+
+![alt text](notes/static/notes/img/imagem1.png)
+
+Tela das Tags com filtro:
+
+![alt text](notes/static/notes/img/imagem2.png)
+
+Notas da Tag selecionada:
+
+![alt text](notes/static/notes/img/imagem3.png)
 
 <div align="right">
   Insper - 4ºComp
