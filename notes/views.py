@@ -38,7 +38,7 @@ def updateNoteViews(request, pk):
             tag.save()
         Note.objects.filter(pk=pk).update(title=request.POST.get('title'), content=request.POST.get('content'), tag=tag)
     else:
-        Note.objects.filter(pk=pk).update(title=request.POST.get('title'), content=request.POST.get('content'))
+        Note.objects.filter(pk=pk).update(title=request.POST.get('title'), content=request.POST.get('content'), tag=None)
 
     if previous_tag:
         existing_notes = Note.objects.filter(tag=previous_tag)
