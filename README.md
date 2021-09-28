@@ -62,16 +62,12 @@ mkdir -p $HOME/docker/volumes/postgres
 
 Crie a Base de Dados Postgres pelo docker:
 ```cmd
-docker run --rm --name post-it -e POSTGRES_PASSWORD=tecweb123 -d -p 5432:5432 -v $HOME/docker/
+docker run --rm --name pg-docker -e POSTGRES_PASSWORD=getitsenha -d -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data postgres
 ```
 
 Acessando a Base de dados e executando autorizações:
 ```cmd
-volumes/postgres:/var/lib/postgresql/data postgres
-```
-
-```cmd
-docker exec -it post-it bash
+docker exec -it pg-docker bash
 ```
 
 ```cmd
